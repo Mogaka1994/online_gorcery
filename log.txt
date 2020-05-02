@@ -1,0 +1,9 @@
+11
+11
+11
+SELECT * FROM users WHERE email='admin@admin.com'
+INSERT INTO users (email, password) VALUES ('admin@admin4.com', '25d55ad283aa400af464c76d713c07ad')
+25d55ad283aa400af464c76d713c07ad
+INSERT INTO users (email, password) VALUES ('admin@admin4.com', '25d55ad283aa400af464c76d713c07ad')
+12
+12

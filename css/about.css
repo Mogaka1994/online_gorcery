@@ -1,0 +1,50 @@
+
+.js-slideshow {
+    --fade: 1.8s;
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding-bottom: 56.25%;
+    box-shadow: 0 6px 30px #0002;
+}
+
+/* each animated slide should be a figure and a direct child of .js-slideshow */
+.js-slideshow > figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity var(--fade) ease;
+}
+
+.js-slideshow > figure:first-child {
+    opacity: 1;
+}
+
+.js-slideshow img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* optional caption */
+.js-slideshow figcaption {
+    margin-top: 0.8em;
+    font-size: 1.1rem;
+    line-height: 1.3em;
+    letter-spacing: 0.03em;
+    font-weight: 100;
+    font-style: italic;
+    color: white;
+    opacity: 0.7;
+}
+
+@media (orientation: landscape) {
+    .container {
+        width: 50vw;
+    }
+}
