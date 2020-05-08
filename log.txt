@@ -7,3 +7,15 @@ INSERT INTO users (email, password) VALUES ('admin@admin4.com', '25d55ad283aa400
 INSERT INTO users (email, password) VALUES ('admin@admin4.com', '25d55ad283aa400af464c76d713c07ad')
 12
 12
+12
+12
+12
+SELECT * FROM products WHERE id=1
+1
+SELECT * FROM users WHERE email='admin@admin4.com'
+SELECT * FROM users WHERE email='admin@admin4.com'
+12
+12
+12
+SELECT * FROM products WHERE id=23
+23

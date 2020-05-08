@@ -49,12 +49,15 @@ if(isset($_POST) & !empty($_POST)){
 					foreach ($cart as $key => $value) {
 						//echo $key . " : " . $value['quantity'] ."<br>";
 						$ordsql = "SELECT * FROM products WHERE id=$key";
+						file_put_contents("log.txt", "$ordsql"."\n",FILE_APPEND);
 						$ordres = mysqli_query($connection, $ordsql);
 						$ordr = mysqli_fetch_assoc($ordres);
 
 						$pid          = $ordr['id'];
 						$productprice = $ordr['price'];
 						$quantity     = $value['quantity'];
+						file_put_contents("log.txt","$pid"."\n",FILE_APPEND);
+
 
 
 						$orditmsql = "INSERT INTO orderitems (pid, orderid, productprice, pquantity) VALUES ('$pid', '$orderid', '$productprice', '$quantity')";
@@ -79,15 +82,17 @@ if(isset($_POST) & !empty($_POST)){
 					$ordsql = "SELECT * FROM products WHERE id=$key";
 					$ordres = mysqli_query($connection, $ordsql);
 					$ordr = mysqli_fetch_assoc($ordres);
-
 					$total = $total + ($ordr['price']*$value['quantity']);
 				}
 
 				$iosql = "INSERT INTO orders (uid, totalprice, orderstatus, paymentmode) VALUES ('$uid', '$total', 'Order Placed', '$payment')";
+										file_put_contents("log.txt", "$iosql"."\n",FILE_APPEND);
+
 				$iores = mysqli_query($connection, $iosql) or die(mysqli_error($connection));
 				if($iores){
 					//echo "Order inserted, insert order items <br>";
 					$orderid = mysqli_insert_id($connection);
+										file_put_contents("log.txt", "$iosql"."\n",FILE_APPEND);
 					foreach ($cart as $key => $value) {
 						//echo $key . " : " . $value['quantity'] ."<br>";
 						$ordsql = "SELECT * FROM products WHERE id=$key";
