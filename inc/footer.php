@@ -7,12 +7,9 @@
 		
 		<div class="footer-bottom container">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="text-center">
                     <p>© <?php echo date("Y"); ?>  Easy Foods Grocery Store. All rights reserved | Design by Polycarp</p>
                 </div>
-				<div class="col-md-6">
-					
-				</div>
 			</div>
 		</div>
 	</footer>

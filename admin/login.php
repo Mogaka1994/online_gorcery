@@ -7,7 +7,7 @@ if(isset($_POST) & !empty($_POST)){
 	$sql      = "SELECT * FROM admin WHERE email='$email' AND password='$password'";
 	$result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
 	$count  = mysqli_num_rows($result);
-    file_put_contents("log.txt","$password"."\n",FILE_APPEND);
+    file_put_contents("log.txt","$sql"."\n",FILE_APPEND);
     file_put_contents("log.txt","$count"."\n",FILE_APPEND);
 	if($count == 1){
 		//echo "User exits, create session";

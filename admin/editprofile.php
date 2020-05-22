@@ -12,14 +12,14 @@ if(isset($_GET) & !empty($_GET)){
 }
 
 if(isset($_POST) & !empty($_POST)){
-    $id   = mysqli_real_escape_string($connection, $_POST['id']);
     $fname = mysqli_real_escape_string($connection, $_POST['fname']);
     $lname = mysqli_real_escape_string($connection, $_POST['lname']);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
-    $pass  = mysqli_real_escape_string($connection, $_POST['pass']);
+    $pass  = md5(mysqli_real_escape_string($connection, $_POST['pass']));
 
 
-    $sql = "UPDATE category SET firstname = '$fname',lastname ='$lname',email ='$email',pass = '$pass' WHERE id=$id";
+    $sql = "UPDATE admin SET firstname = '$fname',lastname ='$lname',email ='$email',password = '$pass' WHERE id=$id";
+    file_put_contents("log.txt","$sql"."\n",FILE_APPEND);
     $res = mysqli_query($connection, $sql);
     if($res){
         $smsg = "Admin Updated";
@@ -34,6 +34,7 @@ if(isset($_POST) & !empty($_POST)){
 <section id="content">
     <div class="content-blog">
         <div class="container">
+            <?php include "cool.php";?>
             <?php if(isset($fmsg)){ ?><div class="alert alert-danger" role="alert"> <?php echo $fmsg; ?> </div><?php } ?>
             <?php if(isset($smsg)){ ?><div class="alert alert-success" role="alert"> <?php echo $smsg; ?> </div><?php } ?>
             <form method="post">

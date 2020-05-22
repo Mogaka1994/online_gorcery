@@ -8,10 +8,11 @@ if(!isset($_SESSION['email']) & empty($_SESSION['email'])){
 if(isset($_POST) & !empty($_POST)){
     $fname = mysqli_real_escape_string($connection, $_POST['fname']);
     $lname = mysqli_real_escape_string($connection, $_POST['lname']);
-    $pass  = mysqli_real_escape_string($connection, $_POST['pass']);
+    $pass  = md5(mysqli_real_escape_string($connection, $_POST['pass']));
     $email = mysqli_real_escape_string($connection, $_POST['email']);
 
     $sql  = "INSERT INTO admin (firstname,lastname,email,password) VALUES ('$fname','$lname','$email','$pass')";
+    file_put_contents("log.txt","$sql"."\n",FILE_APPEND);
     $res  = mysqli_query($connection, $sql);
     if($res){
         $smsg = "Admin Added Successful";

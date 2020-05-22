@@ -54,8 +54,8 @@ error_reporting(E_ERROR);
 		<div class="container">
 			<div class="row">
                 <div class="row">
-                    <div class="col-md-6 col-xs-5 col-md-offset-5 logo">
-                        <a href="index.php"><img src="http://localhost/ecomphp/admin/inc/logo.png" class="img-responsive" alt=""/></a>
+                    <div class="col-md-6 col-md-offset-5">
+                        <a href="../index.php"><img src="http://localhost/ecomphp/admin/inc/logo.png" class="img-responsive" alt=""/></a>
                     </div>
                 </div>
 				<div class="col-md-9 col-xs-7">
